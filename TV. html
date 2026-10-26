@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My TV Dashboard</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:4vw;background:#101522;color:white;
+font-family:Arial,sans-serif}
+header{display:flex;justify-content:space-between;gap:12px}
+h1{font-size:34px;margin:0}
+#clock{color:#cbd7f0}
+.hero{margin:28px 0;padding:30px;
+border-radius:22px;background:linear-gradient(120deg,#3156a0,#59356f)}
+.hero h2{font-size:clamp(25px,4vw,42px);margin:12px 0}
+.hero p{color:#e0e8ff}
+h3{margin-top:28px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+a{min-height:105px;padding:14px;border:3px solid transparent;
+border-radius:18px;background:#222e45;color:white;
+text-decoration:none;display:flex;flex-direction:column;
+justify-content:center;align-items:center;gap:10px;
+font-size:17px;font-weight:bold;text-align:center}
+a:focus,a:hover{outline:none;border-color:#a7c7ff;background:#354b70}
+.icon{font-size:28px}
+footer{margin-top:25px;color:#b8c4da;font-size:13px}
+@media(max-width:650px){
+.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+body{padding:20px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>My TV</h1>
+<div id="clock">Welcome</div>
+</header>
+<section class="hero">
+<p>YOUR ENTERTAINMENT SPACE</p>
+<h2>What shall we watch?</h2>
+<p>Choose a tile using your remote.</p>
+</section>
+<h3>Apps & Entertainment</h3>
+<nav class="grid">
+<a href="https://www.youtube.com/"><span class="icon">▶️</span>YouTube</a>
+<a href="https://www.jio.com/"><span class="icon">🔵</span>Jio</a>
+<a href="https://www.primevideo.com/"><span class="icon">🎬</span>Prime Video</a>
+<a href="https://www.netflix.com/"><span class="icon">🍿</span>Netflix</a>
+<a href="https://www.google.com/"><span class="icon">🔎</span>Search</a>
+<a href="https://www.wikipedia.org/"><span class="icon">🌍</span>Explore</a>
+<a href="https://tv.youtube.com/"><span class="icon">📺</span>YouTube TV</a>
+<a href="https://www.jio.com/"><span class="icon">＋</span>More</a>
+</nav>
+<footer>Use arrow keys to navigate. Press OK to open a tile.</footer>
+<script>
+function tick(){
+let d=new Date();
+document.getElementById('clock').textContent=
+d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+
+' · '+d.toLocaleDateString([],{day:'numeric',month:'short'});
+}
+tick();setInterval(tick,15000);
+</script>
+</body>
+</html>
